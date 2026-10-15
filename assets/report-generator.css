@@ -162,7 +162,7 @@
 }
 
 .arg-preview-panel {
-  overflow: hidden;
+  overflow: visible;
 }
 
 .arg-preview-toolbar {
@@ -178,15 +178,16 @@
   color: #203e38;
 }
 
+/* ========== Screen / preview report ========== */
 .arg-report {
   position: relative;
   background: #fff;
   color: var(--arg-ink);
   width: 100%;
   max-width: 720px;
-  min-height: 1018px;
+  min-height: 980px;
   margin: 0 auto;
-  padding: 30px 30px 22px;
+  padding: 24px 24px 18px;
   display: flex;
   flex-direction: column;
   box-shadow: 0 2px 16px rgba(10, 35, 29, .15);
@@ -200,41 +201,48 @@
   flex: 0 0 auto;
 }
 
-.arg-report__government {
-  font-size: 16px;
-  font-weight: 800;
-  margin-top: 3px;
+.arg-report__logo-wrap {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 4px;
+  text-align: center;
 }
 
-.arg-report__organization {
-  font-size: 12px;
-  font-weight: 600;
-  margin-top: 2px;
+.arg-report__logo {
+  display: block;
+  width: 180px;
+  height: auto;
+  max-width: 50%;
+  object-fit: contain;
+  object-position: center;
+  margin: 0 auto;
 }
 
 .arg-report__seal {
-  width: 62px;
-  height: 62px;
+  width: 52px;
+  height: 52px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 14px auto 4px;
+  margin: 6px auto 4px;
   border: 2px solid var(--arg-green);
   border-radius: 50%;
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 700;
 }
 
 .arg-report__header h1 {
   color: var(--arg-green);
-  font-size: 31px;
+  font-size: 26px;
   font-weight: 900;
   margin: 0;
-  line-height: 1.25;
+  line-height: 1.2;
 }
 
 .arg-report__subtitle {
-  margin: 3px 0 10px;
+  margin: 2px 0 8px;
   font-size: 12px;
   font-weight: 600;
 }
@@ -242,8 +250,8 @@
 .arg-report__period {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  margin: 0 auto 7px;
+  gap: 16px;
+  margin: 0 auto 6px;
   width: 78%;
 }
 
@@ -251,7 +259,7 @@
   background: var(--arg-brown);
   color: #fff;
   border-radius: 11px;
-  padding: 6px 7px;
+  padding: 5px 7px;
   font-size: 12px;
 }
 
@@ -261,15 +269,15 @@
 }
 
 .arg-report__period-note {
-  min-height: 29px;
+  min-height: 26px;
   display: table;
-  margin: 0 auto 17px;
+  margin: 0 auto 10px;
   border: 1px solid #3b342e;
   color: #1363a4;
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 700;
-  padding: 2px 20px;
-  min-width: 150px;
+  padding: 2px 16px;
+  min-width: 130px;
   text-align: center;
   direction: rtl;
 }
@@ -280,43 +288,48 @@
 
 .arg-report__section {
   flex: 0 0 auto;
-  margin: 0 0 11px;
+  margin: 0 0 10px;
 }
 
 .arg-report__section h2 {
   background: var(--arg-green);
   color: #fff;
-  margin: 0 0 14px;
-  padding: 7px 10px;
-  font-size: 15px;
+  margin: 0 0 8px;
+  padding: 6px 10px;
+  font-size: 14px;
   line-height: 1.3;
-  border-radius: 10px;
+  border-radius: 8px;
   text-align: center;
   font-weight: 800;
 }
 
 .arg-report__cards {
   display: grid;
-  gap: 9px;
+  gap: 8px;
   align-items: stretch;
-  padding: 0 7px;
+  padding: 0 4px;
 }
 
 .arg-report__cards--three {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  direction: ltr;
+}
+
+.arg-report__cards--three>.arg-report__card {
+  direction: rtl;
 }
 
 .arg-report__cards--two {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  padding: 0 16px;
+  padding: 0 12px;
 }
 
 .arg-report__card {
   min-width: 0;
   border: 1.5px solid var(--arg-blue);
-  border-radius: 15px;
-  min-height: 135px;
-  padding: 12px 7px 10px;
+  border-radius: 12px;
+  min-height: 115px;
+  padding: 10px 6px 8px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -324,51 +337,51 @@
 }
 
 .arg-report__cards--two .arg-report__card {
-  min-height: 117px;
+  min-height: 100px;
 }
 
 .arg-report__card h3 {
   color: var(--arg-green);
-  font-size: 14px;
-  line-height: 1.35;
-  margin: 2px 0 6px;
+  font-size: 13px;
+  line-height: 1.3;
+  margin: 2px 0 4px;
   font-weight: 800;
 }
 
 .arg-report__card p {
   color: #263c38;
   font-size: 10px;
-  line-height: 1.45;
-  margin: 0 0 8px;
-  min-height: 28px;
+  line-height: 1.35;
+  margin: 0 0 6px;
+  min-height: 24px;
 }
 
 .arg-report__value {
   border: 2px solid #138b8b;
   color: #1266a3;
   border-radius: 999px;
-  min-height: 39px;
-  min-width: 80%;
-  padding: 3px 8px;
+  min-height: 34px;
+  min-width: 78%;
+  padding: 2px 8px;
   margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 21px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.2;
   overflow-wrap: anywhere;
 }
 
 .arg-report__cards--two .arg-report__value {
-  min-width: 72%;
+  min-width: 70%;
 }
 
 .arg-report__region {
   text-align: center;
   color: #314d47;
   font-size: 10px;
-  margin: auto auto 20px;
+  margin: 8px auto 12px;
   flex: 0 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -383,50 +396,59 @@
 
 .arg-report__region strong {
   display: inline-block;
-  min-width: 180px;
+  min-width: 160px;
   max-width: 100%;
   border: 1px solid #385c52;
-  padding: 3px 12px;
+  padding: 2px 10px;
   color: #1266a3;
-  font-size: 16px;
+  font-size: 14px;
   line-height: 1.3;
 }
 
-.arg-report__footer {
-  position: absolute;
-  left: 30px;
-  right: 30px;
-  bottom: 22px;
+div.arg-report__footer,
+.arg-app .arg-report .arg-report__footer {
   display: grid !important;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  direction: ltr;
-  justify-content: space-between;
-  gap: 12px;
-  align-items: center;
-  background: var(--arg-green-dark);
-  color: #b9d0c7;
-  padding: 10px 18px;
-  min-height: 52px;
-  font-size: 9px;
-  flex: 0 0 auto;
-  print-color-adjust: exact;
-  -webkit-print-color-adjust: exact;
+  visibility: visible !important;
+  opacity: 1 !important;
+  margin-top: auto !important;
+  width: 100% !important;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+  direction: ltr !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+  align-items: center !important;
+  background: var(--arg-green-dark) !important;
+  color: #b9d0c7 !important;
+  padding: 8px 14px !important;
+  min-height: 46px !important;
+  font-size: 9px !important;
+  flex: 0 0 auto !important;
+  border-radius: 4px !important;
+  print-color-adjust: exact !important;
+  -webkit-print-color-adjust: exact !important;
+  z-index: 10 !important;
 }
 
 .arg-report__contact {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-self: start;
-  line-height: 1.4;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-self: start !important;
+  line-height: 1.35 !important;
+  direction: ltr !important;
+  text-align: left !important;
+  white-space: nowrap !important;
 }
 
 .arg-report__footer-org {
-  direction: rtl;
-  text-align: right;
-  justify-self: end;
+  display: block !important;
+  direction: rtl !important;
+  text-align: right !important;
+  justify-self: end !important;
+  line-height: 1.35 !important;
 }
 
+/* Responsive screen */
 @media (max-width: 980px) {
   .arg-workspace {
     grid-template-columns: 1fr;
@@ -451,7 +473,7 @@
   }
 
   .arg-report {
-    padding: 22px 16px 16px;
+    padding: 16px 12px 12px;
     min-height: 0;
   }
 
@@ -461,7 +483,7 @@
   }
 
   .arg-report__header h1 {
-    font-size: 25px;
+    font-size: 22px;
   }
 
   .arg-report__cards {
@@ -469,17 +491,13 @@
     gap: 6px;
   }
 
-  .arg-report__cards--three {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
   .arg-report__cards--two {
     padding: 0;
   }
 
   .arg-report__card {
-    min-height: 125px;
-    padding: 9px 4px;
+    min-height: 100px;
+    padding: 8px 4px;
   }
 
   .arg-report__card h3 {
@@ -491,20 +509,22 @@
   }
 
   .arg-report__value {
-    font-size: 16px;
-    min-height: 32px;
+    font-size: 14px;
+    min-height: 28px;
   }
 
   .arg-report__region {
-    margin: 28px auto 10px;
+    margin: 10px auto 8px;
   }
 
-  .arg-report__footer {
-    position: static;
-    margin-top: 14px;
+  .arg-report__logo {
+    width: 100%;
+    max-width: 160px;
+    height: auto;
   }
 }
 
+/* ========== Print (A4 portrait) ========== */
 @page {
   size: A4 portrait;
   margin: 0;
@@ -517,7 +537,9 @@
     margin: 0 !important;
     padding: 0 !important;
     width: 210mm !important;
-    min-width: 210mm !important;
+    height: 297mm !important;
+    max-height: 297mm !important;
+    overflow: hidden !important;
     background: #fff !important;
   }
 
@@ -560,408 +582,80 @@
     padding: 0 !important;
   }
 
+  /* Fixed 267mm report container positioned relative for footer placement */
   .arg-report {
     visibility: visible !important;
     position: relative !important;
     width: 190mm !important;
-    height: 277mm !important;
-    min-height: 277mm !important;
+    height: 267mm !important;
+    max-height: 267mm !important;
     max-width: none !important;
-    margin: 10mm auto 0 !important;
-    padding: 7mm 7mm 5mm !important;
+    margin: 5mm auto 0 !important;
+    padding: 4mm 6mm 16mm !important;
     box-shadow: none !important;
     border: 0 !important;
     overflow: hidden !important;
     background: #fff !important;
+    display: block !important;
     print-color-adjust: exact !important;
     -webkit-print-color-adjust: exact !important;
+    break-after: avoid !important;
+    page-break-after: avoid !important;
   }
 
-  .arg-report__section {
-    margin-bottom: 3.1mm !important;
-  }
-
-  .arg-report__section h2 {
-    padding: 1.7mm 2mm !important;
-    margin-bottom: 3mm !important;
-    font-size: 11pt !important;
-  }
-
-  .arg-report__period-note {
-    margin-bottom: 4mm !important;
-  }
-
-  .arg-report__card {
-    min-height: 31mm !important;
-    padding: 2.5mm 1.5mm 2mm !important;
-  }
-
-  .arg-report__cards--two .arg-report__card {
-    min-height: 27mm !important;
-  }
-
-  .arg-report__card h3 {
-    font-size: 10pt !important;
-  }
-
-  .arg-report__card p {
-    font-size: 7.5pt !important;
-  }
-
-  .arg-report__value {
-    min-height: 10mm !important;
-    font-size: 15pt !important;
-  }
-
-  .arg-report__cards {
-    gap: 2.2mm !important;
-  }
-
-  .arg-report__cards--two {
-    padding: 0 4mm !important;
-  }
-
-  .arg-report__footer {
-    display: grid !important;
-    position: absolute !important;
-    left: 7mm !important;
-    right: 7mm !important;
-    bottom: 5mm !important;
-    width: auto !important;
-    min-height: 14mm !important;
-    padding: 2.5mm 4mm !important;
-    font-size: 6.8pt !important;
-    background: #064b3e !important;
-    color: #b9d0c7 !important;
-  }
-
-  .arg-report__footer-org {
-    text-align: right !important;
-  }
-
-  .arg-report__region {
-    margin-bottom: 8mm !important;
-  }
-
-  .arg-report__region strong {
-    min-width: 48mm !important;
-  }
-
-  a[href]:after {
-    content: none !important;
-  }
-}
-
-
-/* Version 0.3.0 fixes: logo, first-row ordering, and a reliable footer. */
-.arg-report__logo-wrap {
-  display: flex !important;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto 2mm;
-  text-align: center;
-}
-
-.arg-report__logo {
-  display: block !important;
-  width: 142.66mm !important;
-  height: 45.55mm !important;
-  max-width: 100%;
-  object-fit: contain;
-  object-position: center;
-  margin: 0 auto;
-}
-
-/* In RTL grids, the first item starts at the right. This one row follows
-   the reference image from left to right: حالة، مستفيداً، مراجعاً. */
-.arg-report__cards--three {
-  direction: ltr !important;
-}
-
-.arg-report__cards--three>.arg-report__card {
-  direction: rtl;
-}
-
-/* Keep the contact details on the left and the Arabic organization on the right. */
-.arg-report .arg-report__footer {
-  display: grid !important;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-  direction: ltr !important;
-  align-items: center !important;
-  justify-content: space-between !important;
-  gap: 3mm !important;
-  background: #064b3e !important;
-  color: #b9d0c7 !important;
-  z-index: 5;
-  box-sizing: border-box !important;
-  print-color-adjust: exact !important;
-  -webkit-print-color-adjust: exact !important;
-}
-
-.arg-report .arg-report__contact {
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: flex-start !important;
-  justify-self: start !important;
-  direction: ltr !important;
-  text-align: left !important;
-  line-height: 1.35 !important;
-  white-space: nowrap;
-}
-
-.arg-report .arg-report__footer-org {
-  display: block !important;
-  justify-self: end !important;
-  direction: rtl !important;
-  text-align: right !important;
-  line-height: 1.4 !important;
-}
-
-@media (max-width: 600px) {
-  .arg-report .arg-report__footer {
-    position: static !important;
-    width: 100% !important;
-    margin-top: 14px;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-  }
-
-  .arg-report__logo {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 142.66 / 45.55;
-  }
-}
-
-@page {
-  size: A4 portrait;
-  margin: 0;
-}
-
-@media print {
   .arg-report__logo-wrap {
     margin: 0 auto 1mm !important;
   }
 
   .arg-report__logo {
-    width: 142.66mm !important;
-    height: 45.55mm !important;
-    max-width: 100% !important;
-  }
-
-  .arg-report__government {
-    margin-top: 0 !important;
-    font-size: 10pt !important;
-    line-height: 1.2 !important;
-  }
-
-  .arg-report__organization {
-    margin-top: .5mm !important;
-    font-size: 8pt !important;
-    line-height: 1.2 !important;
+    width: 48mm !important;
+    height: auto !important;
+    max-width: 48mm !important;
+    object-fit: contain !important;
   }
 
   .arg-report__seal {
-    width: 12mm !important;
-    height: 12mm !important;
-    margin: 1.5mm auto 1mm !important;
-    font-size: 8pt !important;
+    width: 9mm !important;
+    height: 9mm !important;
+    margin: 1mm auto 1mm !important;
+    font-size: 7pt !important;
+    border-width: 1pt !important;
   }
 
   .arg-report__header h1 {
-    font-size: 21pt !important;
+    font-size: 15pt !important;
     line-height: 1.15 !important;
-  }
-
-  .arg-report__subtitle {
-    margin: 1mm 0 2mm !important;
-    font-size: 8pt !important;
-    line-height: 1.2 !important;
-  }
-
-  .arg-report__period {
-    gap: 6mm !important;
-    margin-bottom: 1mm !important;
-  }
-
-  .arg-report__period span {
-    padding: 1mm 1.5mm !important;
-    font-size: 8pt !important;
-    line-height: 1.25 !important;
-  }
-
-  .arg-report__period-note {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    min-height: 7mm !important;
-    margin-bottom: 2.2mm !important;
-    padding: 1mm 8mm !important;
-    font-size: 11pt !important;
-    line-height: 1.2 !important;
-  }
-
-  .arg-report__section {
-    margin-bottom: 2mm !important;
-  }
-
-  .arg-report__section h2 {
-    margin-bottom: 2mm !important;
-    padding: 1.5mm 2mm !important;
-    font-size: 10pt !important;
-    line-height: 1.2 !important;
-  }
-
-  .arg-report__card {
-    min-height: 26mm !important;
-    padding: 1.5mm 1mm 1.5mm !important;
-  }
-
-  .arg-report__cards--two .arg-report__card {
-    min-height: 24mm !important;
-  }
-
-  .arg-report__card h3 {
-    margin: .5mm 0 1mm !important;
-    font-size: 9pt !important;
-    line-height: 1.25 !important;
-  }
-
-  .arg-report__card p {
-    margin: 0 0 1mm !important;
-    min-height: 6mm !important;
-    font-size: 7pt !important;
-    line-height: 1.25 !important;
-  }
-
-  .arg-report__value {
-    min-height: 8mm !important;
-    font-size: 13pt !important;
-    line-height: 1.15 !important;
-  }
-
-  .arg-report__cards {
-    gap: 2mm !important;
-  }
-
-  .arg-report__cards--two {
-    padding: 0 4mm !important;
-  }
-
-  .arg-report__region {
-    margin-bottom: 7mm !important;
-    font-size: 7pt !important;
-    line-height: 1.2 !important;
-  }
-
-  .arg-report__region strong {
-    min-width: 48mm !important;
-    padding: 1mm 3mm !important;
-    font-size: 11pt !important;
-  }
-
-  .arg-report .arg-report__footer {
-    position: absolute !important;
-    left: 7mm !important;
-    right: 7mm !important;
-    bottom: 4mm !important;
-    width: auto !important;
-    min-height: 14mm !important;
-    margin: 0 !important;
-    padding: 2mm 4mm !important;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-    font-size: 6.8pt !important;
-    line-height: 1.25 !important;
-    background: #064b3e !important;
-    color: #b9d0c7 !important;
-  }
-
-  .arg-report .arg-report__contact {
-    font-size: 6.8pt !important;
-    white-space: nowrap !important;
-  }
-
-  .arg-report .arg-report__footer-org {
-    font-size: 7pt !important;
-  }
-}
-
-
-/* Version 0.4.0: compact logo/header, month aligned beneath its label,
-   and keep region + footer together in the printable A4 flow. */
-.arg-report__logo-wrap {
-  margin: 0 auto 1mm !important;
-}
-
-.arg-report__logo {
-  width: 55mm !important;
-  height: 17.55mm !important;
-  max-width: 100% !important;
-  object-fit: contain !important;
-}
-
-.arg-report__period-note {
-  width: 38% !important;
-  min-width: 0 !important;
-  margin: 0 11% 3mm auto !important;
-  padding: 1mm 3mm !important;
-  min-height: 7mm !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  text-align: center !important;
-}
-
-@media print {
-
-  /* A4 content must fit on one page; avoid absolute footer/region overlap. */
-  .arg-report {
-    height: 277mm !important;
-    min-height: 277mm !important;
-    padding: 5mm 7mm 4mm !important;
-    overflow: hidden !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  .arg-report__logo-wrap {
-    margin: 0 auto 0.5mm !important;
-  }
-
-  .arg-report__logo {
-    width: 55mm !important;
-    height: 17.55mm !important;
-    max-width: 100% !important;
-  }
-
-  .arg-report__seal {
-    width: 10mm !important;
-    height: 10mm !important;
-    margin: 1mm auto 0.5mm !important;
-    font-size: 7pt !important;
-  }
-
-  .arg-report__header h1 {
-    font-size: 19pt !important;
-    line-height: 1.05 !important;
     margin: 0 !important;
   }
 
   .arg-report__subtitle {
     margin: 0.5mm 0 1.5mm !important;
-    font-size: 7.5pt !important;
+    font-size: 7pt !important;
+    line-height: 1.2 !important;
   }
 
   .arg-report__period {
-    margin-bottom: 0.5mm !important;
+    width: 78% !important;
+    gap: 3mm !important;
+    margin: 0 auto 1mm !important;
+  }
+
+  .arg-report__period span {
+    padding: 0.8mm 1.2mm !important;
+    font-size: 7pt !important;
+    line-height: 1.2 !important;
+    border-radius: 2mm !important;
   }
 
   .arg-report__period-note {
-    width: 38% !important;
-    margin: 0 11% 2mm auto !important;
-    min-height: 6mm !important;
-    padding: 0.5mm 2mm !important;
-    font-size: 10pt !important;
+    display: table !important;
+    width: auto !important;
+    min-width: 30mm !important;
+    min-height: 5mm !important;
+    margin: 0 auto 1.5mm !important;
+    padding: 0.5mm 3mm !important;
+    font-size: 9pt !important;
+    line-height: 1.2 !important;
   }
 
   .arg-report__section {
@@ -969,81 +663,119 @@
   }
 
   .arg-report__section h2 {
-    margin-bottom: 1.5mm !important;
-    padding: 1.2mm 2mm !important;
-    font-size: 9.5pt !important;
-    line-height: 1.15 !important;
-  }
-
-  .arg-report__card,
-  .arg-report__cards--two .arg-report__card {
-    min-height: 22mm !important;
-    padding: 1mm 1mm !important;
-  }
-
-  .arg-report__card h3 {
-    margin: 0.3mm 0 0.5mm !important;
-    font-size: 8.5pt !important;
-    line-height: 1.15 !important;
-  }
-
-  .arg-report__card p {
-    min-height: 4mm !important;
-    margin: 0 0 0.5mm !important;
-    font-size: 6.5pt !important;
-    line-height: 1.15 !important;
-  }
-
-  .arg-report__value {
-    min-height: 7mm !important;
-    margin-top: 1mm !important;
-    font-size: 12pt !important;
-    line-height: 1.05 !important;
+    margin: 0 0 1.2mm !important;
+    padding: 0.8mm 1.5mm !important;
+    font-size: 8pt !important;
+    line-height: 1.2 !important;
+    border-radius: 1.5mm !important;
   }
 
   .arg-report__cards {
-    gap: 1.5mm !important;
+    gap: 1.2mm !important;
+    padding: 0 1mm !important;
+  }
+
+  .arg-report__cards--three {
+    direction: ltr !important;
+  }
+
+  .arg-report__cards--three>.arg-report__card {
+    direction: rtl !important;
   }
 
   .arg-report__cards--two {
     padding: 0 3mm !important;
   }
 
-  .arg-report__region {
-    margin: 1mm auto 1.5mm !important;
-    font-size: 6.5pt !important;
+  .arg-report__card {
+    min-height: 20mm !important;
+    padding: 1.2mm 1mm 1mm !important;
+    border-radius: 2.5mm !important;
+    border-width: 1pt !important;
+  }
+
+  .arg-report__cards--two .arg-report__card {
+    min-height: 18mm !important;
+  }
+
+  .arg-report__card h3 {
+    margin: 0.2mm 0 0.5mm !important;
+    font-size: 7.5pt !important;
+    line-height: 1.2 !important;
+  }
+
+  .arg-report__card p {
+    margin: 0 0 0.5mm !important;
+    min-height: 4mm !important;
+    font-size: 6pt !important;
+    line-height: 1.15 !important;
+  }
+
+  .arg-report__value {
+    min-height: 6mm !important;
+    min-width: 75% !important;
+    padding: 0.5mm 1mm !important;
+    margin-top: auto !important;
+    font-size: 9.5pt !important;
     line-height: 1.1 !important;
+    border-width: 1pt !important;
+  }
+
+  .arg-report__cards--two .arg-report__value {
+    min-width: 68% !important;
+  }
+
+  .arg-report__region {
+    margin: 1.2mm auto 1.5mm !important;
+    font-size: 6.5pt !important;
+    line-height: 1.2 !important;
   }
 
   .arg-report__region strong {
-    min-width: 42mm !important;
-    padding: 0.5mm 2mm !important;
-    font-size: 9pt !important;
-    line-height: 1.1 !important;
+    min-width: 36mm !important;
+    padding: 0.6mm 2mm !important;
+    font-size: 8pt !important;
+    line-height: 1.2 !important;
   }
 
-  .arg-report .arg-report__footer {
-    position: static !important;
-    inset: auto !important;
-    width: 100% !important;
-    min-height: 12mm !important;
-    margin: 2mm 0 0 !important;
-    padding: 1.5mm 3mm !important;
-    flex: 0 0 12mm !important;
+  /* Pin footer absolutely to bottom of report box during print */
+  div.arg-report__footer,
+  .arg-app .arg-report .arg-report__footer {
+    position: absolute !important;
+    bottom: 2mm !important;
+    left: 6mm !important;
+    right: 6mm !important;
+    width: auto !important;
+    min-height: 9mm !important;
+    padding: 1.2mm 3mm !important;
+    display: grid !important;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+    direction: ltr !important;
+    gap: 2mm !important;
+    align-items: center !important;
+    background: #064b3e !important;
+    color: #b9d0c7 !important;
     font-size: 6pt !important;
-    line-height: 1.15 !important;
+    line-height: 1.2 !important;
     break-inside: avoid !important;
     page-break-inside: avoid !important;
+    print-color-adjust: exact !important;
+    -webkit-print-color-adjust: exact !important;
   }
 
-  .arg-report .arg-report__contact {
+  .arg-report__contact {
     font-size: 6pt !important;
     line-height: 1.2 !important;
+    white-space: nowrap !important;
   }
 
-  .arg-report .arg-report__footer-org {
+  .arg-report__footer-org {
     font-size: 6.5pt !important;
     line-height: 1.2 !important;
+    text-align: right !important;
+  }
+
+  a[href]:after {
+    content: none !important;
   }
 }

@@ -185,7 +185,7 @@
   color: var(--arg-ink);
   width: 100%;
   max-width: 720px;
-  min-height: 980px;
+  min-height: 1000px;
   margin: 0 auto;
   padding: 24px 24px 18px;
   display: flex;
@@ -206,43 +206,43 @@
   width: 100%;
   justify-content: center;
   align-items: center;
-  margin: 0 auto 4px;
+  margin: 0 auto 6px;
   text-align: center;
 }
 
 .arg-report__logo {
   display: block;
-  width: 180px;
+  width: 200px;
   height: auto;
-  max-width: 50%;
+  max-width: 55%;
   object-fit: contain;
   object-position: center;
   margin: 0 auto;
 }
 
 .arg-report__seal {
-  width: 52px;
-  height: 52px;
+  width: 54px;
+  height: 54px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 6px auto 4px;
+  margin: 8px auto 4px;
   border: 2px solid var(--arg-green);
   border-radius: 50%;
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
 }
 
 .arg-report__header h1 {
   color: var(--arg-green);
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 900;
   margin: 0;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 
 .arg-report__subtitle {
-  margin: 2px 0 8px;
+  margin: 2px 0 10px;
   font-size: 12px;
   font-weight: 600;
 }
@@ -259,7 +259,7 @@
   background: var(--arg-brown);
   color: #fff;
   border-radius: 11px;
-  padding: 5px 7px;
+  padding: 6px 7px;
   font-size: 12px;
 }
 
@@ -269,15 +269,16 @@
 }
 
 .arg-report__period-note {
-  min-height: 26px;
+  min-height: 28px;
   display: table;
-  margin: 0 auto 10px;
+  margin: 0 80px auto 0;
+  /* تم تغيير الهامش الأوسط ليكون محاذاة لليمين */
   border: 1px solid #3b342e;
   color: #1363a4;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 700;
-  padding: 2px 16px;
-  min-width: 130px;
+  padding: 2px 18px;
+  min-width: 140px;
   text-align: center;
   direction: rtl;
 }
@@ -288,24 +289,24 @@
 
 .arg-report__section {
   flex: 0 0 auto;
-  margin: 0 0 10px;
+  margin: 0 0 12px;
 }
 
 .arg-report__section h2 {
   background: var(--arg-green);
   color: #fff;
-  margin: 0 0 8px;
-  padding: 6px 10px;
-  font-size: 14px;
+  margin: 0 0 10px;
+  padding: 7px 10px;
+  font-size: 15px;
   line-height: 1.3;
-  border-radius: 8px;
+  border-radius: 10px;
   text-align: center;
   font-weight: 800;
 }
 
 .arg-report__cards {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   align-items: stretch;
   padding: 0 4px;
 }
@@ -321,14 +322,14 @@
 
 .arg-report__cards--two {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  padding: 0 12px;
+  padding: 0 14px;
 }
 
 .arg-report__card {
   min-width: 0;
   border: 1.5px solid var(--arg-blue);
-  border-radius: 12px;
-  min-height: 115px;
+  border-radius: 14px;
+  min-height: 120px;
   padding: 10px 6px 8px;
   text-align: center;
   display: flex;
@@ -337,13 +338,13 @@
 }
 
 .arg-report__cards--two .arg-report__card {
-  min-height: 100px;
+  min-height: 106px;
 }
 
 .arg-report__card h3 {
   color: var(--arg-green);
-  font-size: 13px;
-  line-height: 1.3;
+  font-size: 14px;
+  line-height: 1.35;
   margin: 2px 0 4px;
   font-weight: 800;
 }
@@ -360,14 +361,14 @@
   border: 2px solid #138b8b;
   color: #1266a3;
   border-radius: 999px;
-  min-height: 34px;
+  min-height: 36px;
   min-width: 78%;
   padding: 2px 8px;
   margin-top: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 18px;
+  font-size: 19px;
   font-weight: 700;
   line-height: 1.2;
   overflow-wrap: anywhere;
@@ -381,7 +382,7 @@
   text-align: center;
   color: #314d47;
   font-size: 10px;
-  margin: 8px auto 12px;
+  margin: 10px auto 14px;
   flex: 0 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -396,12 +397,12 @@
 
 .arg-report__region strong {
   display: inline-block;
-  min-width: 160px;
+  min-width: 165px;
   max-width: 100%;
   border: 1px solid #385c52;
-  padding: 2px 10px;
+  padding: 3px 10px;
   color: #1266a3;
-  font-size: 14px;
+  font-size: 19px;
   line-height: 1.3;
 }
 
@@ -419,8 +420,8 @@ div.arg-report__footer,
   align-items: center !important;
   background: var(--arg-green-dark) !important;
   color: #b9d0c7 !important;
-  padding: 8px 14px !important;
-  min-height: 46px !important;
+  padding: 10px 16px !important;
+  min-height: 48px !important;
   font-size: 9px !important;
   flex: 0 0 auto !important;
   border-radius: 4px !important;
@@ -534,248 +535,52 @@ div.arg-report__footer,
 
   html,
   body {
-    margin: 0 !important;
-    padding: 0 !important;
-    width: 210mm !important;
-    height: 297mm !important;
-    max-height: 297mm !important;
-    overflow: hidden !important;
-    background: #fff !important;
+    margin: 0;
+    padding: 0;
+    width: 210mm;
+    height: 297mm;
+    max-height: 297mm;
+    overflow: hidden;
+    background: #fff;
   }
 
   body * {
-    visibility: hidden !important;
+    visibility: hidden;
   }
 
   .arg-app,
   .arg-app * {
-    visibility: visible !important;
+    visibility: visible;
   }
 
   .arg-page-heading,
   .arg-form-panel,
   .arg-preview-toolbar {
-    display: none !important;
+    display: none;
   }
 
-  .arg-app {
-    display: block !important;
-    width: 210mm !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .arg-workspace {
-    display: block !important;
-    width: 210mm !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .arg-preview-panel {
-    display: block !important;
-    overflow: visible !important;
-    width: 210mm !important;
-    max-width: none !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  /* Fixed 267mm report container positioned relative for footer placement */
   .arg-report {
-    visibility: visible !important;
-    position: relative !important;
-    width: 190mm !important;
-    height: 267mm !important;
-    max-height: 267mm !important;
-    max-width: none !important;
-    margin: 5mm auto 0 !important;
-    padding: 4mm 6mm 16mm !important;
     box-shadow: none !important;
-    border: 0 !important;
-    overflow: hidden !important;
-    background: #fff !important;
-    display: block !important;
-    print-color-adjust: exact !important;
-    -webkit-print-color-adjust: exact !important;
-    break-after: avoid !important;
-    page-break-after: avoid !important;
+    border: none !important;
   }
 
-  .arg-report__logo-wrap {
-    margin: 0 auto 1mm !important;
-  }
-
-  .arg-report__logo {
-    width: 48mm !important;
-    height: auto !important;
-    max-width: 48mm !important;
-    object-fit: contain !important;
-  }
-
-  .arg-report__seal {
-    width: 9mm !important;
-    height: 9mm !important;
-    margin: 1mm auto 1mm !important;
-    font-size: 7pt !important;
-    border-width: 1pt !important;
-  }
-
-  .arg-report__header h1 {
-    font-size: 15pt !important;
-    line-height: 1.15 !important;
-    margin: 0 !important;
-  }
-
-  .arg-report__subtitle {
-    margin: 0.5mm 0 1.5mm !important;
-    font-size: 7pt !important;
-    line-height: 1.2 !important;
-  }
-
-  .arg-report__period {
-    width: 78% !important;
-    gap: 3mm !important;
-    margin: 0 auto 1mm !important;
-  }
-
-  .arg-report__period span {
-    padding: 0.8mm 1.2mm !important;
-    font-size: 7pt !important;
-    line-height: 1.2 !important;
-    border-radius: 2mm !important;
-  }
-
-  .arg-report__period-note {
-    display: table !important;
-    width: auto !important;
-    min-width: 30mm !important;
-    min-height: 5mm !important;
-    margin: 0 auto 1.5mm !important;
-    padding: 0.5mm 3mm !important;
-    font-size: 9pt !important;
-    line-height: 1.2 !important;
+  /* Pack header and sections toward the top */
+  .arg-report__header {
+    margin-bottom: 2mm !important;
   }
 
   .arg-report__section {
-    margin: 0 0 1.5mm !important;
+    margin-bottom: 2mm !important;
   }
 
-  .arg-report__section h2 {
-    margin: 0 0 1.2mm !important;
-    padding: 0.8mm 1.5mm !important;
-    font-size: 8pt !important;
-    line-height: 1.2 !important;
-    border-radius: 1.5mm !important;
-  }
-
-  .arg-report__cards {
-    gap: 1.2mm !important;
-    padding: 0 1mm !important;
-  }
-
-  .arg-report__cards--three {
-    direction: ltr !important;
-  }
-
-  .arg-report__cards--three>.arg-report__card {
-    direction: rtl !important;
-  }
-
-  .arg-report__cards--two {
-    padding: 0 3mm !important;
-  }
-
-  .arg-report__card {
-    min-height: 20mm !important;
-    padding: 1.2mm 1mm 1mm !important;
-    border-radius: 2.5mm !important;
-    border-width: 1pt !important;
-  }
-
-  .arg-report__cards--two .arg-report__card {
-    min-height: 18mm !important;
-  }
-
-  .arg-report__card h3 {
-    margin: 0.2mm 0 0.5mm !important;
-    font-size: 7.5pt !important;
-    line-height: 1.2 !important;
-  }
-
-  .arg-report__card p {
-    margin: 0 0 0.5mm !important;
-    min-height: 4mm !important;
-    font-size: 6pt !important;
-    line-height: 1.15 !important;
-  }
-
-  .arg-report__value {
-    min-height: 6mm !important;
-    min-width: 75% !important;
-    padding: 0.5mm 1mm !important;
-    margin-top: auto !important;
-    font-size: 9.5pt !important;
-    line-height: 1.1 !important;
-    border-width: 1pt !important;
-  }
-
-  .arg-report__cards--two .arg-report__value {
-    min-width: 68% !important;
-  }
-
+  /* Remove any automatic spacing pushing content down */
   .arg-report__region {
-    margin: 1.2mm auto 1.5mm !important;
-    font-size: 6.5pt !important;
-    line-height: 1.2 !important;
+    margin-top: 2mm !important;
+    margin-bottom: 2mm !important;
   }
 
-  .arg-report__region strong {
-    min-width: 36mm !important;
-    padding: 0.6mm 2mm !important;
-    font-size: 8pt !important;
-    line-height: 1.2 !important;
-  }
-
-  /* Pin footer absolutely to bottom of report box during print */
-  div.arg-report__footer,
-  .arg-app .arg-report .arg-report__footer {
-    position: absolute !important;
-    bottom: 2mm !important;
-    left: 6mm !important;
-    right: 6mm !important;
-    width: auto !important;
-    min-height: 9mm !important;
-    padding: 1.2mm 3mm !important;
-    display: grid !important;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
-    direction: ltr !important;
-    gap: 2mm !important;
-    align-items: center !important;
-    background: #064b3e !important;
-    color: #b9d0c7 !important;
-    font-size: 6pt !important;
-    line-height: 1.2 !important;
-    break-inside: avoid !important;
-    page-break-inside: avoid !important;
-    print-color-adjust: exact !important;
+  * {
     -webkit-print-color-adjust: exact !important;
-  }
-
-  .arg-report__contact {
-    font-size: 6pt !important;
-    line-height: 1.2 !important;
-    white-space: nowrap !important;
-  }
-
-  .arg-report__footer-org {
-    font-size: 6.5pt !important;
-    line-height: 1.2 !important;
-    text-align: right !important;
-  }
-
-  a[href]:after {
-    content: none !important;
+    print-color-adjust: exact !important;
   }
 }

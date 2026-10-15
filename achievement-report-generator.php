@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Achievement Report Generator
  * Description: A live Arabic RTL achievement-report form with an A4 print layout. Reports are generated in the browser and are not saved.
- * Version: 0.1.0
+ * Version: 0.3.0
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: Site Team
@@ -14,7 +14,7 @@ if (!defined('ABSPATH')) {
 }
 
 final class Achievement_Report_Generator {
-    const VERSION = '0.1.0';
+    const VERSION = '0.3.0';
 
     public function __construct() {
         add_shortcode('achievement_report_generator', [$this, 'render_shortcode']);
@@ -74,6 +74,20 @@ final class Achievement_Report_Generator {
         wp_enqueue_style('achievement-report-generator');
         wp_enqueue_script('achievement-report-generator');
 
+        // Prefer the active theme/child-theme asset, with a plugin-local fallback.
+        $theme_logo_path = get_theme_file_path('/assets/images/logo.png');
+        $theme_logo_url  = get_theme_file_uri('/assets/images/logo.png');
+        $plugin_logo_path = plugin_dir_path(__FILE__) . 'assets/images/logo.png';
+        $plugin_logo_url  = plugin_dir_url(__FILE__) . 'assets/images/logo.png';
+
+        if (file_exists($theme_logo_path)) {
+            $logo_url = $theme_logo_url;
+        } elseif (file_exists($plugin_logo_path)) {
+            $logo_url = $plugin_logo_url;
+        } else {
+            $logo_url = '';
+        }
+
         ob_start(); ?>
         <div class="arg-app" dir="rtl">
             <div class="arg-page-heading">
@@ -85,9 +99,8 @@ final class Achievement_Report_Generator {
                 <section class="arg-form-panel" aria-label="نموذج بيانات التقرير">
                     <h3>بيانات التقرير</h3>
                     <div class="arg-form-grid">
-                        <?php echo $this->field('month', 'الشهر', '', 'text', 'مثال: ربيع الآخر'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+                        <?php echo $this->field('month', 'الشهر الهجري', 'ربيع الآخر (٤)', 'text', 'مثال: ربيع الآخر (٤)'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         <?php echo $this->field('hijri_year', 'السنة الهجرية', '١٤٤٨'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-                        <?php echo $this->field('period_note', 'الفترة / الربع (اختياري)', ''); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                         <?php echo $this->field('region', 'المنطقة أو الفرع', 'الباحة'); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
                     </div>
 
@@ -121,16 +134,25 @@ final class Achievement_Report_Generator {
                     <div class="arg-preview-toolbar"><strong>معاينة الطباعة</strong><span>A4 · عمودي</span></div>
                     <article class="arg-report" id="arg-print-report" dir="rtl" aria-label="تقرير الإنجازات">
                         <header class="arg-report__header">
-                            <div class="arg-report__government">المملكة العربية السعودية</div>
-                            <div class="arg-report__organization">الرئاسة العامة للبحوث العلمية والإفتاء</div>
+                            <?php if ($logo_url !== '') : ?>
+                                <div class="arg-report__logo-wrap">
+                                    <img
+                                        class="arg-report__logo"
+                                        src="<?php echo esc_url($logo_url); ?>"
+                                        alt="شعار الرئاسة العامة للبحوث العلمية والإفتاء"
+                                        width="540"
+                                        height="172"
+                                    >
+                                </div>
+                            <?php endif; ?>
                             <div class="arg-report__seal">إفتاء</div>
                             <h1>تقرير إنجازات</h1>
                             <p class="arg-report__subtitle">فرع الرئاسة العامة للبحوث العلمية والإفتاء</p>
                             <div class="arg-report__period">
-                                <span>خلال شهر <b data-report-output="month">—</b></span>
-                                <span>لعام <b data-report-output="hijri_year">١٤٤٨</b> هـ</span>
+                                <span class="arg-report__period-label">خلال شهر</span>
+                                <span class="arg-report__year-label">لعام <b data-report-output="hijri_year">١٤٤٨</b> هـ</span>
                             </div>
-                            <div class="arg-report__period-note" data-report-output="period_note" data-empty-hide>—</div>
+                            <div class="arg-report__period-note" data-report-output="month" data-empty-hide>ربيع الآخر (٤)</div>
                         </header>
 
                         <section class="arg-report__section">
@@ -163,13 +185,13 @@ final class Achievement_Report_Generator {
                             <strong data-report-output="region">الباحة</strong>
                         </div>
 
-                        <footer class="arg-report__footer">
+                        <footer class="arg-report__footer" dir="ltr" aria-label="بيانات التواصل">
                             <div class="arg-report__contact" dir="ltr">
                                 <span>011 - 459 5555</span>
                                 <span>alifta@alifta.gov.sa</span>
                                 <span>alifta.gov.sa&nbsp; | &nbsp;alifta.sa</span>
                             </div>
-                            <div class="arg-report__footer-org">الرئاسة العامة للبحوث العلمية والإفتاء</div>
+                            <div class="arg-report__footer-org" dir="rtl">الرئاسة العامة للبحوث العلمية والإفتاء</div>
                         </footer>
                     </article>
                 </section>

@@ -2,33 +2,45 @@
 /**
  * Plugin Name: Achievement Report Generator
  * Description: A live Arabic RTL achievement-report form with an A4 print layout. Reports are generated in the browser and are not saved.
- * Version: 0.5.2
+ * Version: 0.6.0
  * Requires at least: 6.0
  * Requires PHP: 7.4
- * Author: Site Team
+ * Author: Yamen Shahin <yamenshahin@gmail.com>
+ * Author URI: https://github.com/yamenshahin
+ * Plugin URI: https://github.com/yamenshahin
  * Text Domain: achievement-report-generator
  */
+
 if (!defined('ABSPATH')) {
     exit;
 }
+
 final class Achievement_Report_Generator
 {
-    const VERSION = '0.5.2';
+    const VERSION = '0.6.0';
+    const TARGET_PAGE_ID = 13630;
+
     public function __construct()
     {
         add_shortcode('achievement_report_generator', [$this, 'render_shortcode']);
         add_action('wp_enqueue_scripts', [$this, 'register_assets']);
+
+        add_action('wp', [$this, 'isolate_target_page']);
+        add_action('wp_enqueue_scripts', [$this, 'dequeue_unwanted_styles'], 9999);
     }
+
     public function register_assets()
     {
         $base_url = plugin_dir_url(__FILE__);
         $base_path = plugin_dir_path(__FILE__);
+
         wp_register_style(
             'achievement-report-generator',
             $base_url . 'assets/report-generator.css',
             [],
             file_exists($base_path . 'assets/report-generator.css') ? filemtime($base_path . 'assets/report-generator.css') : self::VERSION
         );
+
         wp_register_script(
             'achievement-report-generator',
             $base_url . 'assets/report-generator.js',
@@ -37,6 +49,38 @@ final class Achievement_Report_Generator
             true
         );
     }
+
+    public function isolate_target_page()
+    {
+        if (is_page(self::TARGET_PAGE_ID)) {
+            remove_all_actions('get_header');
+            remove_all_actions('get_footer');
+
+            add_filter('template_include', function ($template) {
+                $plugin_template = plugin_dir_path(__FILE__) . 'isolated-page-template.php';
+                if (file_exists($plugin_template)) {
+                    return $plugin_template;
+                }
+                return $template;
+            }, 9999);
+        }
+    }
+
+    public function dequeue_unwanted_styles()
+    {
+        if (is_page(self::TARGET_PAGE_ID)) {
+            global $wp_styles;
+            if (!empty($wp_styles->registered)) {
+                foreach ($wp_styles->registered as $handle => $style) {
+                    if ($handle !== 'achievement-report-generator') {
+                        wp_deregister_style($handle);
+                        wp_dequeue_style($handle);
+                    }
+                }
+            }
+        }
+    }
+
     private function field($name, $label, $value = '', $type = 'text', $placeholder = '')
     {
         ob_start(); ?>
@@ -48,6 +92,7 @@ final class Achievement_Report_Generator
         </label>
         <?php return ob_get_clean();
     }
+
     private function metric_fields($index, $title, $description, $value, $with_description = true)
     {
         ob_start(); ?>
@@ -61,14 +106,17 @@ final class Achievement_Report_Generator
         </fieldset>
         <?php return ob_get_clean();
     }
+
     public function render_shortcode()
     {
         wp_enqueue_style('achievement-report-generator');
         wp_enqueue_script('achievement-report-generator');
+
         $theme_logo_path = get_theme_file_path('/assets/images/logo.png');
         $theme_logo_url = get_theme_file_uri('/assets/images/logo.png');
         $plugin_logo_path = plugin_dir_path(__FILE__) . 'assets/images/logo.png';
         $plugin_logo_url = plugin_dir_url(__FILE__) . 'assets/images/logo.png';
+
         if (file_exists($theme_logo_path)) {
             $logo_url = $theme_logo_url;
         } elseif (file_exists($plugin_logo_path)) {
@@ -76,6 +124,7 @@ final class Achievement_Report_Generator
         } else {
             $logo_url = '';
         }
+
         ob_start(); ?>
         <div class="arg-app" dir="rtl">
             <div class="arg-page-heading">
@@ -174,6 +223,7 @@ final class Achievement_Report_Generator
         <?php
         return ob_get_clean();
     }
+
     private function report_card($index, $with_description)
     {
         ob_start(); ?>
@@ -188,4 +238,5 @@ final class Achievement_Report_Generator
         <?php return ob_get_clean();
     }
 }
+
 new Achievement_Report_Generator();
